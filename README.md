@@ -32,7 +32,6 @@ This repository uses a **simulated dataset** of 300 cases that replicates the st
 |--------|-------------|
 | Past Due Days | Days beyond the 45-day delivery deadline |
 | E-Status | Current case status (Scope Missing, Estimate Missing, On Hold, No Contact) |
-| Estimator Performance | Cases assigned vs overdue ratio per estimator |
 | Average Overdue Days | Average days past deadline across all active overdue cases |
 | Past Due vs Total Assigned | Percentage of each estimator's caseload that is overdue |
 | On Hold vs Total Ratio | Cases blocked by external factors as percentage of total caseload |
