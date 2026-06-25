@@ -11,7 +11,7 @@ A mid-sized public adjusting company had 130+ overdue insurance claim estimates 
 I designed and implemented a weekly operational analytics report that tracked every active case across 9 estimators, measuring:
 - Days overdue per case and per estimator
 - Reason for delay (Scope Missing, Estimate Missing, On Hold, No Contact)
-- Estimator performance trends week over week
+- Estimator performance both for completed cases and overdue files.
 - Cases blocked by external factors (client/insurer) vs internal delays
 
 ## The Result
@@ -22,19 +22,27 @@ I designed and implemented a weekly operational analytics report that tracked ev
 ## Dataset
 This repository uses a **simulated dataset** of 300 cases that replicates the structure and business logic of the real system. All names, file numbers, and dates are fictional.
 
+## Dashboard Preview
+<img width="1311" height="735" alt="image" src="https://github.com/user-attachments/assets/a6184df2-3a23-4901-b15d-eb25de3516ec" />
+
 ## Tools Used
-- Microsoft Excel (Advanced) — data cleaning, KPI formulas, dashboard
-- Power Query — automated data pipeline connected to CRM exports
-- Pivot Tables & Charts — weekly summary by estimator
+- SQL: Data gathering and cleaning.
+- Power BI : Dashboard and visualizations 
+- DAX: Custom measures and calculations
 
 ## Key Metrics Tracked
 | Metric | Description |
 |--------|-------------|
-| Past Due Days | Days beyond the 45-day delivery deadline |
-| E-Status | Current case status (Scope Missing, Estimate Missing, On Hold, No Contact) |
-| Average Overdue Days | Average days past deadline across all active overdue cases |
-| Past Due vs Total Assigned | Percentage of each estimator's caseload that is overdue |
-| On Hold vs Total Ratio | Cases blocked by external factors as percentage of total caseload |
-| Week-over-week Change | Comparison with previous report to track progress per estimator |
+| Amount of files Past Due | Number of files that have exceeded the expected completion deadline. The analysis uses an initial target of 22 overdue files per estimator, with the goal of progressively reducing this threshold each month until reaching a near-zero overdue backlog. |
+| E-Status distribution | Current status of overdue cases, categorized as Scope Missing, Estimate Missing, On Hold, or No Contact, providing visibility into operational bottlenecks. |
+| Average Overdue Days | Average number of days that active overdue files have remained past their expected completion date. This metric helps assess the severity and aging of the backlog. |
+| Top performers based on completion | Tracks estimators with the highest number of completed cases to identify best practices and opportunities to replicate successful workflows across the team. |
+| On Hold vs Total overdue Ratio | Percentage of overdue files currently on hold due to external dependencies or blockers, helping quantify factors outside the team's direct control. |
 
-
+## Key Insights
+- 223 files are currently past due. This is equivalent to 74% of the files reviewed indicating a systematic backlog rather than an isolated issue. 
+- David Kim carries double the past-due load of the best-performing estimator (38 vs 19).
+- The average overdue age is 239 days past days after the 45 deadline.
+- Robert Chen is the standout performer: near-target past-due count, top-3 completion rate — a useful benchmark for team process standards.
+- 18.39% of overdue files are on hold due to external dependencies.
+- Estimate Missing and Scope Missing represent the largest sources of process delays therefore the largest areas of improvement on the team.
